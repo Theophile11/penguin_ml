@@ -5,6 +5,10 @@ import matplotlib.pyplot as plt
 import pandas as pd 
 from transformers import pipeline
 
+password_guess = st.text_input('What is the Password?')
+if password_guess != st.secrets['password']:
+  st.stop()
+
 
 penguin_df = pd.read_csv('penguins.csv')
 rf_pickle = open('random_forest_penguin.pickle', 'rb')
